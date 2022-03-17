@@ -1,10 +1,12 @@
-const express = require('express');
-const router = express.Router();
+import express from "express";
+import { AddProduct, DeleteProduct, ListProduct, ListProductDetail, UpdateProduct } from "../controllers/product";
+const productRouter = express.Router();
 
-router.get('/', (request, response) => {
-    response.send(`
-        <h1>Home Page</h1>
-        <p>Hi các bạn</p>
-    `);
-});
-module.exports = router;
+
+productRouter.get('/products', ListProduct);
+productRouter.get('/products/:id', ListProductDetail);
+productRouter.post('/products', AddProduct);
+productRouter.delete('/products/:id', DeleteProduct);
+productRouter.put('/products/:id', UpdateProduct);
+
+export default productRouter

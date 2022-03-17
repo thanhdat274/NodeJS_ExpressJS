@@ -1,42 +1,19 @@
-const http = require('http');
-const express = require('express');
+import express from 'express';
+import homeRouter from "./routers/home"
+import productRouter from "./routers/product"
+import mongoose from 'mongoose';
+
 const app = express();
-const server = http.createServer(app);
 
-const home = require('./routers/home');
-app.use(home);
+app.use(express.json());
+app.use(homeRouter);
+app.use("/api", productRouter);
 
-const product = require('./routers/product');
-app.use(product);
-
-
-app.get('/products/:id', (request, response) => {
-    response.send(`
-        <h1>Detail Products Page</h1>
-        ${request.params}
-    `);
-});
-
-// const server = http.createServer((request, response) => {
-//     console.log(request.url);
-//     if (request.url === "/") {
-//         response.setHeader("Content-Type", "text/html");
-//         response.write("<h3>Home Page</h3>");
-//         response.end();
-//     }
-//     if (request.url === "/products") {
-//         response.setHeader("Content-Type", "text/html");
-//         response.write("<h3>Product Page</h3>");
-//         response.end();
-//     }
-//     if (request.url === "/news") {
-//         response.setHeader("Content-Type", "text/html");
-//         response.write("<h3>News Page</h3>");
-//         response.end();
-//     }
-// });
+mongoose.connect('mongodb://127.0.0.1:27017/we16307')
+    .then(() => console.log("Connecting to db"))
+    .catch(err => console.log("Error connecting to db"))
 
 const port = 3001;
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is running on ${port}`);
 })
