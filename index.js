@@ -2,16 +2,18 @@ import express from 'express';
 import homeRouter from "./routers/home"
 import productRouter from "./routers/product"
 import mongoose from 'mongoose';
+import cateRouter from './routers/category';
 
 const app = express();
 
 app.use(express.json());
 app.use(homeRouter);
 app.use("/api", productRouter);
+app.use("/api", cateRouter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/we16307')
-    .then(() => console.log("Connecting to db"))
-    .catch(err => console.log("Error connecting to db"))
+    .then(() => console.log("Kết nối với Database thành công"))
+    .catch(err => console.log("Kết nối với Database không thành công"))
 
 const port = 3001;
 app.listen(port, () => {
