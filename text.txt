@@ -1,0 +1,13 @@
+- Cài đặt môi trường node_modules: npm init vite@latest my-app -- --template vanilla
+- Cài đặt môi trường node js: npm init -y
+- Cài đặt nodemon (công cụ giúp ứng dụng node được tự động restart khi có sự thay đổi)
+    npm i -g nodemon
+    npm i --save-dev nodemon
+- Cài đặt môi trường express: npm i express
+- Sửa câu lệnh start thành "start": "nodemon index.js --exec babel-node -e js"
+- Chạy câu lệnh npm start để chạy nodemon
+- Cài đặt babel: npm i --save-dev nodemon babel-cli babel-preset-env babel-preset-stage-0
+- Tạo file .babelrc trong thư mục gốc rồi thêm code bên dưới
+            { "presets": ["env","stage-0"] }
+- trường hợp start lỗi: npm i -g babel-cli
+- Cài đặt mongoose: npm i mongoose
