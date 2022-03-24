@@ -1,4 +1,3 @@
-- Cài đặt môi trường node_modules: npm init vite@latest my-app -- --template vanilla
 - Cài đặt môi trường node js: npm init -y
 - Cài đặt nodemon (công cụ giúp ứng dụng node được tự động restart khi có sự thay đổi)
     npm i -g nodemon
