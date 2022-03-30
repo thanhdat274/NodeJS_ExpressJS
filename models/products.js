@@ -13,5 +13,5 @@ const productSchema = new mongoose.Schema({
         type: ObjectId,
         ref: 'categoryProducts'
     }
-})
+}, { timestamps: true })
 export default mongoose.model('Product', productSchema)
