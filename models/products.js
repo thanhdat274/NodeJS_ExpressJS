@@ -9,6 +9,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    role:{
+        type: Number,
+        default: 0
+    },
     categoryProducts: {
         type: ObjectId,
         ref: 'categoryProducts'
